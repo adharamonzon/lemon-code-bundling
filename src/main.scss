@@ -1,9 +1,19 @@
+//variables
 $backgroundColor: darkCyan;
+$fontColor: white;
+$fontFamily: sans-serif;
 
-.backgroundColor {
+@import './infoComponent.scss';
+
+*{
   background-color: $backgroundColor;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color:  $fontColor;
+  font-family: $fontFamily;
 }
 
-img {
-  width: 200px;
+.title {
+  margin: 30px;
 }

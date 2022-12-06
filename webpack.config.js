@@ -4,8 +4,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //modulo para li
 
 module.exports = {
   context: path.resolve(__dirname, './src'),
+  resolve: {
+    extensions: ['.js', 'ts', '.tsx'],
+  },
   entry: {
-    app: './index.js',
+    app: './index.tsx',
     appStyle: './main.scss',
   },
   output: {
@@ -16,14 +19,26 @@ module.exports = {
     rules: [
       //los use: sirven para cargar + de un loader, se cargan de dcha a izq.
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                exportLocalConvention: 'camelCase',
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentContext: path.resolve(__dirname, 'src'),
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
@@ -48,7 +63,11 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  devtool: 'eval-source-map',
   devServer: {
     // static: path.join(__dirname, './src'),
+    devMiddleware: {
+      stats: 'errors-only',
+    },
   },
 };

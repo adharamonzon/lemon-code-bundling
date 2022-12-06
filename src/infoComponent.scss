@@ -1,0 +1,21 @@
+.text {
+  background-color: lightblue;
+  color: white;
+}
+
+
+.main {
+  color: $fontColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  &--title {
+    margin: 25px 0;
+  }
+}
+
+img {
+  width: 200px;
+}

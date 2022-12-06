@@ -19,6 +19,7 @@ Para archivos css hay varias opciones:
 1. Instalar **style-loader** y **css-loader** para añadirlos a las rules de los archivos con extensión css, en vez de utilizar loader se usará **use** ya que se van a cargar más de un loader, estos se leeran de izquierda a derecha, el css-loader leear los archivos de css y el style-loader lo compilará.
 2. Instalar **MinCssStylePlugin** es necesario instalar el loader y el plugin. Sustituiremos el _style-loader_ que teníamos en las rules por **MiniCssCssExtractPlugin.loader**.
    Hay que añadirlo en la sección de plugins con la configuración: _filename: '[name].css' y cunkFilename:'[id].css'_ con esto podemos eliminar de los entry points el **appStyle**.
+3. **CSS Modules** para simplificar los archivos de css, se puede utilizar CSS modules para organizarolos y utilizar prefijos por cada módulo. Cuando se utilice el bundle.
 
 # SASS
 
