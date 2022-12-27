@@ -1,5 +1,8 @@
 # BUNDLING
 
+Proyecto Semilla creato a través de webpack. Se utiliza la librearia de React.js con Typescirpt. está instalado el uso de sass, y proceso de imágenes. 
+Con entorno de desarrollo y producción. 
+
 # EJECUTAR NPM START
 
 Para poder lanzar la aplicación y tener un servidor en local que vayamos viendo según guardamos cambios podemos instalar **dev- server**\_\**, a través de la consola con el comando *npm install webpack-dev-server --save-dev\*. esto se añadirá en el documento de configuración al final despues de los plugins, se le puede añadir el puerto por el que va a correr la aplicaición y el path entre otras configuraciones.
