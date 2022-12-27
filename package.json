@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "run-p -l type-check:watch start:dev",
-    "start:dev": "webpack serve --mode development",
+    "start:dev": "rimraf dist && webpack serve --config webpack.dev.js",
+    "start:prod": "webpack serve --config webpack.prod.js",
     "type-check": "tsc --noemit",
     "type-check:watch": "npm run type-check -- --watch",
-    "build": "webpack --mode development"
+    "build:dev": "rimraf dist && webpack --config webpack.dev.js",
+    "build:prod": "rimraf dist && webpack --config webpack.prod.js",
+    "build:perf": "npm run type-check && webpack --config webpack.perf.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,7 @@
     "babel-loader": "^9.1.0",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.2",
+    "dotenv-webpack": "^8.0.1",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.0",
@@ -43,7 +47,9 @@
     "style-loader": "^3.3.1",
     "typescript": "^4.9.3",
     "webpack": "^5.75.0",
+    "webpack-bundle-analyzer": "^4.7.0",
     "webpack-cli": "^5.0.0",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
   }
 }

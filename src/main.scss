@@ -1,9 +1,4 @@
-//variables
-$backgroundColor: darkCyan;
-$fontColor: white;
-$fontFamily: sans-serif;
-
-@import './infoComponent.scss';
+@import './styles/variables.scss';
 
 *{
   background-color: $backgroundColor;
@@ -14,6 +9,7 @@ $fontFamily: sans-serif;
   font-family: $fontFamily;
 }
 
-.title {
-  margin: 30px;
+.pageTitle {
+  margin-top: 40px;
+  text-align: center;
 }
