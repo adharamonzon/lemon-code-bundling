@@ -10,6 +10,22 @@ module.exports = merge(common, {
     filename: 'js/[name].[chunkhash].js',
     assetModuleFilename: 'assets/[hash][ext][query]',
   },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'all',
+          name: (module) => {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            return `vendor/${packageName.replace('@', '')}`;
+          },
+          test: /[\\/]node_modules[\\/]/,
+          enforce: true,
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {

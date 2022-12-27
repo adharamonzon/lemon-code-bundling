@@ -15,9 +15,6 @@ module.exports = {
     filename: '[name].[chunkhash].js', //crea un hash por archivo y evitamos problemas de cache
     path: path.resolve(__dirname, 'dist'),
   },
-  optimization: {
-    runtimeChunk: 'single',
-  },
   module: {
     rules: [
       //los use: sirven para cargar + de un loader, se cargan de dcha a izq.
